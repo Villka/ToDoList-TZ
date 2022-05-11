@@ -16,7 +16,7 @@ function App() {
     }
   }
 
-  const removeTask = (id) => {
+  const deleteTask = (id) => {
     setTasks([...tasks.filter((task) => task.id !== id)])
   }
 
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Number of Tasks: {tasks.length}</h1>
+        <h1 data-testid="counter">Number of Tasks: {tasks.length}</h1>
       </header>
       <ToDoForm addTask={addTask} />
       {tasks.map((task, index) => {
@@ -40,12 +40,12 @@ function App() {
             number={index + 1}
             task={task}
             toggleTask={handleToggle}
-            removeTask={removeTask}
+            deleteTask={deleteTask}
             />
         )
       })}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

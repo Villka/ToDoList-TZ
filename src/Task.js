@@ -1,12 +1,14 @@
-const Task = ({ number, task, toggleTask, removeTask }) => {
+const Task = ({ number, task, toggleTask, deleteTask }) => {
     return (
-        <div id={task.id}>
+        <div data-testid="task" id={task.id} className="item-todo">
             <div
+                data-testid="complete"
+                className={task.complete ? "item-text strike" : "item-text"}
                 onClick={() => toggleTask(task.id)}
             >
                 {number}. {task.text}
             </div>
-            <div onClick={() => removeTask(task.id)}>
+            <div data-testid={`del ${number}`} className="item-delete" onClick={() => deleteTask(task.id)}>
                 X
             </div>
         </div>

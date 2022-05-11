@@ -22,13 +22,14 @@ const ToDoForm = ({addTask}) => {
     return (
         <form onSubmit={handleSubmit}>
             <input 
+                data-testid="input"
                 value={userInput}
                 type="text"
                 onChange={handleChange}
                 onKeyDown={handleKeyPress}
                 placeholder="Enter the text..."
             />
-            <button>Add Task</button>
+            <button data-testid="add">Add Task</button>
         </form>
     )
 }
