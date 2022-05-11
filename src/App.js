@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import Task from './Task'
+import ToDoForm from './ToDoForm'
 
 function App() {
+  const [tasks, setTasks] = useState([])
+
+  const addTask = (userInput) => {
+    if(userInput) {
+      const newItem = {
+        id: Math.random().toString(36),
+        text: userInput,
+        complete: false
+      }
+      setTasks([...tasks, newItem])
+    }
+  }
+
+  const removeTask = (id) => {
+    setTasks([...tasks.filter((task) => task.id !== id)])
+  }
+
+  const handleToggle = (id) => {
+    setTasks([
+      ...tasks.map((task) => 
+        task.id === id ? {...task, complete: !task.complete} : {...task}
+        )
+    ])
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Number of Tasks: {tasks.length}</h1>
       </header>
+      <ToDoForm addTask={addTask} />
+      {tasks.map((task, index) => {
+        return (
+          <Task 
+            number={index + 1}
+            task={task}
+            toggleTask={handleToggle}
+            removeTask={removeTask}
+            />
+        )
+      })}
     </div>
   );
 }
