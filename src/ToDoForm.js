@@ -21,7 +21,7 @@ const ToDoForm = ({addTask}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input 
+            <input
                 data-testid="input"
                 value={userInput}
                 type="text"

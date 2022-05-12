@@ -7,25 +7,25 @@ describe('TEST APP', () => {
     render(<App />)
 
 
-    const add = screen.getByTestId('add')
+    const button = screen.getByTestId('add')
     const input = screen.getByPlaceholderText('Enter the text...')
 
 
     expect(screen.queryByTestId('task')).toBeNull()
 
-    fireEvent.click(add)
+    fireEvent.click(button)
     expect(screen.queryByTestId('task')).toBeNull()
 
     fireEvent.input(input, {
       target: {value: ''}
     })
-    fireEvent.click(add)
+    fireEvent.click(button)
     expect(screen.queryByTestId('task')).toBeNull()
 
     fireEvent.input(input, {
       target: {value: 'firstTask'}
     })
-    fireEvent.click(add)
+    fireEvent.click(button)
     expect(screen.getByTestId('task')).toBeInTheDocument()
   })
 
@@ -33,7 +33,7 @@ describe('TEST APP', () => {
     render(<App />)
 
 
-    const add = screen.getByTestId('add')
+    const button = screen.getByTestId('add')
     const input = screen.getByPlaceholderText('Enter the text...')
 
 
@@ -42,7 +42,7 @@ describe('TEST APP', () => {
     fireEvent.input(input, {
       target: {value: 'firstTask'}
     })
-    fireEvent.click(add)
+    fireEvent.click(button)
     expect(screen.getByTestId('task')).toBeInTheDocument()
 
 
@@ -57,7 +57,7 @@ describe('TEST APP', () => {
     render(<App />)
 
 
-    const add = screen.getByTestId('add')
+    const button = screen.getByTestId('add')
     const input = screen.getByPlaceholderText('Enter the text...')
     const counter = screen.getByText('Unfulfilled Tasks: 0')
 
@@ -67,13 +67,13 @@ describe('TEST APP', () => {
     fireEvent.input(input, {
       target: {value: 'firstTask'}
     })
-    fireEvent.click(add)
+    fireEvent.click(button)
     expect(counter).toContainHTML('Unfulfilled Tasks: 1')
 
     fireEvent.input(input, {
       target: {value: 'secondTask'}
     })
-    fireEvent.click(add)
+    fireEvent.click(button)
     expect(counter).toContainHTML('Unfulfilled Tasks: 2')
 
 
@@ -91,14 +91,14 @@ describe('TEST APP', () => {
     render(<App />)
 
 
-    const add = screen.getByTestId('add')
+    const button = screen.getByTestId('add')
     const input = screen.getByPlaceholderText('Enter the text...')
 
 
     fireEvent.input(input, {
       target: {value: 'firstTask'}
     })
-    fireEvent.click(add)
+    fireEvent.click(button)
     expect(screen.getByTestId('task')).toBeInTheDocument()
 
 

@@ -16,14 +16,13 @@ function App() {
     }
   }
 
-  
   const deleteTask = (id) => {
     setTasks([...tasks.filter((task) => task.id !== id)])
   }
 
   const handleToggle = (id) => {
     setTasks([
-      ...tasks.map((task) => 
+      ...tasks.map((task) =>
         task.id === id ? {...task, complete: !task.complete} : {...task}
         )
     ])
@@ -37,7 +36,7 @@ function App() {
       <ToDoForm addTask={addTask} />
       {tasks.map((task, index) => {
         return (
-          <Task 
+          <Task
             number={ index + 1}
             task={task}
             toggleTask={handleToggle}
