@@ -1,6 +1,6 @@
 const Task = ({ number, task, toggleTask, deleteTask }) => {
     return (
-        <div data-testid="task" id={task.id} className="item-todo">
+        <div data-testid="task" id={task.id} className={task.complete ? "item-todo item-complete" : "item-todo"}>
             <div
                 data-testid="complete"
                 className={task.complete ? "item-text strike" : "item-text"}

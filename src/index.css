@@ -18,6 +18,13 @@
   cursor: pointer;
 }
 
+.App .item-complete {
+  background: linear-gradient(90deg,
+      rgb(166, 163, 171) 0%,
+      rgb(167, 161, 161) 100%);
+  color: #fff;
+}
+
 .App .item-todo .item-text {
   display: inline-block;
   cursor: pointer;

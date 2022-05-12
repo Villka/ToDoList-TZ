@@ -16,6 +16,7 @@ function App() {
     }
   }
 
+  
   const deleteTask = (id) => {
     setTasks([...tasks.filter((task) => task.id !== id)])
   }
@@ -31,13 +32,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1 data-testid="counter">Number of Tasks: {tasks.length}</h1>
+        <h1 data-testid="counter">Unfulfilled Tasks: {tasks.filter(tasks => !tasks.complete).length}</h1>
       </header>
       <ToDoForm addTask={addTask} />
       {tasks.map((task, index) => {
         return (
           <Task 
-            number={index + 1}
+            number={ index + 1}
             task={task}
             toggleTask={handleToggle}
             deleteTask={deleteTask}
