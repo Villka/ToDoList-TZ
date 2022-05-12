@@ -15,8 +15,8 @@ This is a ToDo application that implements functions such as:
 npm start
 npm test
 ```
-##   Pattern
+##   Example
 ![mugif](https://im.ezgif.com/tmp/ezgif-1-5fc244faaa.gif)
 
-## Technologic
+## Technologies
 React
